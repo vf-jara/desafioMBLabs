@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import Category from '../components/Category/Category'
 import Card from '../components/Card/Card'
+import { getData } from '../data'
+
 
 function Home() {
+    const [info, setInfo] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        getData()
+            .then(data => {
+                setInfo(data)
+                setLoading(false)
+            })
+    }, [])
+
+    if (loading) {
+        return "Loading"
+    }
+
     return (
         <Layout>
             <div className='w-full flex justify-center'>
@@ -14,7 +31,7 @@ function Home() {
                     <div>
                         <h2 className="text-2xl font-semibold">Categorias</h2>
 
-                        <div className="flex justify-between border overflow-auto">
+                        <div className="flex justify-between overflow-auto">
                             {
                                 /*
                                 **************************
@@ -32,22 +49,13 @@ function Home() {
 
                     <div>
                         <h2 className="text-2xl font-semibold mb-5">Eventos</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 md:gap-x-4 gap-y-6 border">
+                        <div className="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 md:gap-x-4 gap-y-6 ">
                             {
-                                /*
-                                **************************
-                                implementar Map de eventos da API para renderizar todos os itens e passar as props dos dados pros cards
-                                **************************
-                                */
+                                info.map((singleInfo) => (
+                                    <Card props={singleInfo} />
+                                ))
                             }
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
+
                         </div>
                     </div>
                 </div>

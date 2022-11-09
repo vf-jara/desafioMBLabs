@@ -5,9 +5,13 @@ import Header from '../Header/Header'
 function Layout({ children }) {
     return (
         <>
-            <Header />
-            <div>{children}</div>
-            <Footer />
+            <div className='min-h-[calc(100vh-65px)]'>
+                <Header />
+                <div>{children}</div>
+            </div>
+            <div className='relative'>
+                <Footer />
+            </div>
         </>
     )
 }
