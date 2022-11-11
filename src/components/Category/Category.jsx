@@ -5,7 +5,7 @@ function Category(props) {
     return (
         <div className="py-5 px-5 flex flex-col justify-center items-center">
             <Link to={`/category/${props.slug}`}>
-                <div className={`container bg-[${props.source}] bg-gradient-to-r from-[rgba(232,70,139,0.5)] to-[rgba(249,191,76,0.5)] w-36 h-36 rounded-full p-5`}>
+                <div className={`container bg-[${props.source}] bg-gradient-to-r from-[rgba(232,70,139,0.5)] to-[rgba(249,191,76,0.5)] w-36 h-36 rounded-full p-7`}>
                     <img src={props.source} />
                 </div>
             </Link>

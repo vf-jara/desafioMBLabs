@@ -9,25 +9,25 @@ const CATEGORIES = [
         id: '2',
         title: 'Eventos',
         slug: 'eventos',
-        source: '/categories/shows.png'
+        source: '/categories/eventos.png'
     },
     {
         id: '3',
         title: 'Festas',
         slug: 'festas',
-        source: '/categories/shows.png'
+        source: '/categories/festas.png'
     },
     {
         id: '4',
         title: 'Palestras',
         slug: 'palestras',
-        source: '/categories/shows.png'
+        source: '/categories/palestras.png'
     },
     {
         id: '5',
         title: 'Cursos',
         slug: 'cursos',
-        source: '/categories/shows.png'
+        source: '/categories/cursos.png'
     }
 ]
 export default CATEGORIES
