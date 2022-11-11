@@ -64,7 +64,7 @@ function Details() {
                                 </div>
                             </div>
                             <div className=' w-full md:w-1/2 flex flex-col items-center my-10 justify-center'>
-                                <div className='border w-1/2'>
+                                <div className='border md:w-1/2'>
                                     <div className='text-white bg-[#ffab02] px-3 py-2'>
                                         <span>Ingressos:</span>
                                     </div>

@@ -4,6 +4,7 @@ import CategoryPage from './pages/CategoryPage'
 import Checkout from './pages/Checkout'
 import Details from './pages/Details'
 import Home from './pages/Home'
+import SearchResults from './pages/SearchResults'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/checkout/:id/:quantity",
     element: <Checkout />
+  },
+  {
+    path: "/search/*",
+    element: <SearchResults />
   }
 ])
 

@@ -44,7 +44,7 @@ function Home() {
                         <div className="w-full min-h-[350px] bg-destaque bg-cover bg-bottom rounded-xl grid place-content-center">
 
                             <div className=''>
-                                <p className='text-white text-6xl font-bold'>Confira nossos eventos de Reveillon</p>
+                                <p className='text-white p-3 text-4xl md:text-6xl font-bold'>Confira nossos eventos de Reveillon</p>
                             </div>
 
                         </div>

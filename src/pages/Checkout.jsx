@@ -1,11 +1,12 @@
 import { Backdrop, MenuItem, Modal, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
 import { getData } from '../data'
 
 function Checkout() {
     const product = useParams()
+    const navigate = useNavigate()
 
     const [open, setOpen] = useState(false)
     const [details, setDetails] = useState([])
@@ -106,6 +107,7 @@ function Checkout() {
 
     const handleClose = (e) => {
         setOpen(false)
+        navigate("/")
     }
 
     useEffect(() => {
@@ -125,8 +127,8 @@ function Checkout() {
         <Layout>
             <div className='w-full flex justify-center'>
                 <div className='w-full h-full flex flex-col gap-5 max-w-[1100px] py-10 px-5 bg-white'>
-                    <div className='flex w-full justify-around px-10'>
-                        <div className='max-w-[50%] text-2xl flex flex-col gap-3 font-semibold'>
+                    <div className='flex flex-col gap-3 md:flex-row w-full justify-around md:px-10'>
+                        <div className='md:max-w-[50%] text-2xl flex flex-col gap-3 font-semibold'>
 
                             <div className=''>
                                 <h2 className='text-3xl font-bold'>{details.title}</h2>
@@ -152,7 +154,7 @@ function Checkout() {
                         </div>
 
                     </div>
-                    <div className='w-2/3 m-auto border'>
+                    <div className='md:w-2/3 m-auto border'>
                         <form className='border p-5 flex flex-col gap-5' onSubmit={handleSubmit}>
                             <p className='text-xl font-semibold mb-3'>
                                 Informações do Participante
@@ -160,7 +162,7 @@ function Checkout() {
                             <p>
                                 Atenção: Os ingressos serão enviados para o E-mail cadastrado aqui
                             </p>
-                            <div className='flex mt-5 gap-5'>
+                            <div className='flex flex-col md:flex-row mt-5 gap-5'>
 
                                 <TextField
                                     label="Nome"
@@ -177,7 +179,7 @@ function Checkout() {
                                     value={data.surname}
                                     onChange={handleSurname} />
                             </div>
-                            <div className='flex gap-5'>
+                            <div className='flex flex-col md:flex-row gap-5'>
                                 <TextField
                                     label="E-mail"
                                     required
@@ -194,7 +196,7 @@ function Checkout() {
                                 />
                             </div>
                             <TextField
-                                className='w-1/2'
+                                className='md:w-1/2'
                                 label="Gênero"
                                 required
                                 select
@@ -287,8 +289,8 @@ function Checkout() {
                     timeout: 500,
                 }}
             >
-                <div className='absolute w-2/5 bg-white rounded-lg shadow-lg p-8 flex gap-4 flex flex-col items-center'>
-                    <p className="text-2xl font-bold"> 🎉 Obrigado por sua compra! 🎉</p>
+                <div className='absolute w-[90%] md:w-2/5 bg-white rounded-lg shadow-lg p-8 flex gap-4 flex flex-col items-center'>
+                    <p className=" text-center text-2xl font-bold"> 🎉 Obrigado por sua compra! 🎉</p>
 
                     <p className='text-center'>Em instantes seu ingresso e os dados de sua compra serão enviados para o email cadastrado:</p>
                     <p className='font-bold'>{data.email}</p>
