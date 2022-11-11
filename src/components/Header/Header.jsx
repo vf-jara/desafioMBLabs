@@ -9,7 +9,7 @@ function Header() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        navigate(`/search/?=${searchParams}`)
+        navigate(`/search/${searchParams}`)
 
     }
     const handleChange = (e) => {

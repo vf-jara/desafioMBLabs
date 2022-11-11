@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Checkout />
   },
   {
-    path: "/search/*",
+    path: "/search/:searchParams",
     element: <SearchResults />
   }
 ])
