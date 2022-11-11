@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import CategoryPage from './pages/CategoryPage'
+import Checkout from './pages/Checkout'
 import Details from './pages/Details'
 import Home from './pages/Home'
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/category/:name",
     element: <CategoryPage />
+  },
+  {
+    path: "/checkout/:id/:quantity",
+    element: <Checkout />
   }
 ])
 

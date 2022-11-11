@@ -1,6 +1,6 @@
 import { Calendar, CaretCircleDown, CaretCircleUp, MapPin } from 'phosphor-react'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import Button from '../components/Button/Button'
 import Layout from '../components/Layout/Layout'
 import { getData } from '../data'
@@ -9,14 +9,17 @@ function Details() {
 
     const page = useParams()
     const id = page.id
-    console.log(id)
 
     const [details, setDetails] = useState([])
     const [loading, setLoading] = useState(true)
     const [quantity, setQuantity] = useState(0)
     const [price, setPrice] = useState(0)
 
-    console.log(quantity)
+    console.log("price:", price)
+
+    const handleSelection = () => {
+        return <Navigate to="/checkout/:id/:quantity" replace={true} />
+    }
 
     const handleIncrement = (quantity) => {
         setQuantity(quantity + 1)
@@ -26,12 +29,12 @@ function Details() {
     }
     useEffect(() => {
         getData()
-            .then(data => {
-                setDetails(data[id - 1])
+            .then(async data => {
+                await setDetails(data[id - 1])
                 setLoading(false)
                 console.log(details)
             })
-        setPrice((details.price * quantity).toFixed(2))
+        setPrice((details?.price * quantity).toFixed(2))
     }, [quantity])
 
     if (loading) {
@@ -94,9 +97,8 @@ function Details() {
                                                 }
 
                                             </div>
+                                            <Button id={details.id} quantity={quantity} />
 
-
-                                            <Button id={details.id} />
                                         </div>
                                     </div>
                                 </div>
