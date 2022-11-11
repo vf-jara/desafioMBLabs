@@ -6,7 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      backgroundImage: {
+        'destaque': "url('/rev.webp')"
+      }
     },
   },
   plugins: [],

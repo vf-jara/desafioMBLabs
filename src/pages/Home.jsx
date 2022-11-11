@@ -41,8 +41,12 @@ function Home() {
                     </div>
                     <div className='flex flex-col gap-5'>
                         <h2 className="text-2xl font-semibold">Destaque</h2>
-                        <div className='w-full min-h-[300px] bg-gradient-to-tr from-[rgba(232,70,139,1)] to-[rgba(249,191,76,1)] rounded-xl grid place-content-center'>
-                            <p className='text-white text-8xl font-bold'>MB Tickets</p>
+                        <div className="w-full min-h-[350px] bg-destaque bg-cover bg-bottom rounded-xl grid place-content-center">
+
+                            <div className=''>
+                                <p className='text-white text-6xl font-bold'>Confira nossos eventos de Reveillon</p>
+                            </div>
+
                         </div>
                     </div>
 

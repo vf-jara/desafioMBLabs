@@ -1,6 +1,6 @@
 import { Backdrop, MenuItem, Modal, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
 import { getData } from '../data'
 
@@ -107,7 +107,7 @@ function Checkout() {
     const handleClose = (e) => {
         setOpen(false)
     }
-    console.log(data)
+
     useEffect(() => {
         getData()
             .then(async data => {
@@ -126,9 +126,9 @@ function Checkout() {
             <div className='w-full flex justify-center'>
                 <div className='w-full h-full flex flex-col gap-5 max-w-[1100px] py-10 px-5 bg-white'>
                     <div className='flex w-full justify-around px-10'>
-                        <div className=' text-2xl flex flex-col gap-3 font-semibold'>
+                        <div className='max-w-[50%] text-2xl flex flex-col gap-3 font-semibold'>
 
-                            <div>
+                            <div className=''>
                                 <h2 className='text-3xl font-bold'>{details.title}</h2>
                             </div>
 
@@ -137,14 +137,14 @@ function Checkout() {
                             <p>{details.location}</p>
 
                         </div>
-                        <div className='m-w-[200px] '>
+                        <div className='min-w-[250px] '>
                             <div className='border'>
                                 <div className='text-white font-semibold bg-[#ffab02] px-3 py-2'>
                                     <span>Ingressos:</span>
                                 </div>
                                 <div>
                                     <div className='p-3 flex flex-col gap-5'>
-                                        <div className='text-xl font-semibold'>{product.quantity} Ingressos = R$ {details.price * product.quantity}</div>
+                                        <div className='text-xl font-semibold'>{product.quantity} Ingresso(s) = R$ {details.price * product.quantity}</div>
                                     </div>
 
                                 </div>
@@ -278,8 +278,8 @@ function Checkout() {
 
             <Modal
                 className="flex justify-center items-center"
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
+                aria-labelledby="Obrigado por sua compra!"
+                aria-describedby="modal de agradecimento"
                 open={open}
                 onClose={handleClose}
                 BackdropComponent={Backdrop}
@@ -287,8 +287,15 @@ function Checkout() {
                     timeout: 500,
                 }}
             >
-                <div className='absolute w-4/5 bg-white rounded-lg shadow-lg p-8 flex gap-4'>
-                    <p>Teste</p>
+                <div className='absolute w-2/5 bg-white rounded-lg shadow-lg p-8 flex gap-4 flex flex-col items-center'>
+                    <p className="text-2xl font-bold"> 🎉 Obrigado por sua compra! 🎉</p>
+
+                    <p className='text-center'>Em instantes seu ingresso e os dados de sua compra serão enviados para o email cadastrado:</p>
+                    <p className='font-bold'>{data.email}</p>
+                    <Link to="/">
+                        <button type="submit" className='w-full p-5 bg-[#f9bf4c] hover:bg-[#ffab02] transition-all text-xl font-semibold text-white rounded-lg'>Voltar ao Início</button>
+                    </Link>
+
 
                 </div>
             </Modal>

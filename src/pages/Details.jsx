@@ -45,9 +45,9 @@ function Details() {
     return (
         <Layout>
             <div className='w-full flex justify-center'>
-                <div className='w-full h-full flex flex-col gap-5 max-w-[1100px] py-10 px-5 bg-slate-100'>
-                    <div className='grid place-content-center min-h-[200px] border'>
-                        <h1 className='text-4xl font-bold'>imagem do evento</h1>
+                <div className='w-full h-full flex flex-col gap-5 max-w-[1100px] py-10 px-5 bg-white'>
+                    <div className='grid bg-white place-content-center min-h-[200px]'>
+                        <img src={details?.img} />
                     </div>
                     <div className='flex flex-col px-3 md:px-10'>
                         <div className='w-full flex flex-col md:flex-row border-b'>
