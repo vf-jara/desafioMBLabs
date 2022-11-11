@@ -8,7 +8,8 @@ function SearchResults() {
     const page = useParams()
 
     const [info, setInfo] = useState([])
-    console.log(page)
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         getData()
@@ -17,11 +18,14 @@ function SearchResults() {
                 setLoading(false)
             })
     }, [])
-    console.log("dados de entrada: ", info)
 
-    const searched = info.filter(singleInfo => (singleInfo.title.toLowerCase()).includes(page.searchParams.toLowerCase()) || (singleInfo.description.toLowerCase()).includes(page.searchParams.toLocaleLowerCase()))
+    const searched = info.filter(singleInfo => (singleInfo.title.toLowerCase()).includes(page.searchParams.toLowerCase()) || (singleInfo.description.toLowerCase()).includes(page.searchParams.toLowerCase()))
 
-    console.log("dados filtrados: ", searched)
+
+    if (loading) {
+        return "Loading"
+    }
+
     return (
         <Layout>
             <div className='w-full flex justify-center'>
@@ -33,7 +37,7 @@ function SearchResults() {
                         <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 md:gap-x-4 gap-y-6 ">
                             {
                                 searched.map((singleInfo) => (
-                                    <Card props={singleInfo} />
+                                    <Card key={singleInfo.id} props={singleInfo} />
                                 ))
                             }
 

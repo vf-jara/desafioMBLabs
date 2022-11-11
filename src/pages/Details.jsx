@@ -15,11 +15,6 @@ function Details() {
     const [quantity, setQuantity] = useState(0)
     const [price, setPrice] = useState(0)
 
-    console.log("price:", price)
-
-    const handleSelection = () => {
-        return <Navigate to="/checkout/:id/:quantity" replace={true} />
-    }
 
     const handleIncrement = (quantity) => {
         setQuantity(quantity + 1)
@@ -32,9 +27,8 @@ function Details() {
             .then(async data => {
                 await setDetails(data[id - 1])
                 setLoading(false)
-                console.log(details)
+                setPrice((details.price * quantity).toFixed(2))
             })
-        setPrice((details?.price * quantity).toFixed(2))
     }, [quantity])
 
     if (loading) {

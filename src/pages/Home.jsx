@@ -34,7 +34,7 @@ function Home() {
 
                             {
                                 categories.map((item) => (
-                                    <Category title={item.title} slug={item.slug} source={item.source} />
+                                    <Category key={item.id} title={item.title} slug={item.slug} source={item.source} />
                                 ))
                             }
                         </div>
@@ -51,11 +51,11 @@ function Home() {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl font-semibold mb-5">Eventos</h2>
+                        <h2 className="text-2xl font-semibold mb-5">Todos os eventos</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 md:gap-x-4 gap-y-6 ">
                             {
                                 info.map((singleInfo) => (
-                                    <Card props={singleInfo} />
+                                    <Card key={singleInfo.id} props={singleInfo} />
                                 ))
                             }
 

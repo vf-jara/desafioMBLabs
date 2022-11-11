@@ -15,7 +15,6 @@ function Header() {
     const handleChange = (e) => {
         setSearchParams(e.target.value)
     }
-    console.log(searchParams)
     return (
         <div id='mainHeader' className='w-full flex flex-1 border-b p-3 bg-[rgba(255,255,255,0.6)] shadow backdrop-blur-sm'>
             <div className=' bg-white flex justify-center items-center w-28 md:w-40'>
