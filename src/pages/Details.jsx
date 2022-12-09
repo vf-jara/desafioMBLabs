@@ -27,7 +27,9 @@ function Details() {
             .then(async data => {
                 await setDetails(data[id - 1])
                 setLoading(false)
-                setPrice((details.price * quantity).toFixed(2))
+                let detailsPrice = (details.price * quantity).toFixed(2)
+
+                setPrice(isNaN(detailsPrice) ? 0 : detailsPrice)
             })
     }, [quantity])
 
